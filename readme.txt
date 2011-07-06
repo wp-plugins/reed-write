@@ -6,7 +6,7 @@ Requires at least: 3.0.0
 Tested up to: 3.2
 Stable tag: 0.0.0
 
-Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market. The plugin includes full control over post types, taxonomies, and views.
+Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market.
 
 == Description ==
 
