@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Reed Write ===
 Contributors: iambriansreed
 Donate link: http://scottreeddesign.com/project/reed-write/
 Tags: content management, content management system, content types, custom content types, custom post types, post types, cms
