@@ -1,10 +1,10 @@
-=== Plugin Name ===
+=== Reed Write ===
 Contributors: iambriansreed
 Donate link: http://scottreeddesign.com/project/reed-write/
 Tags: content management, content management system, content types, custom content types, custom post types, post types, cms
 Requires at least: 3.0.0
-Tested up to: 3.0
-Stable tag: 1.0.0
+Tested up to: 3.2
+Stable tag: 0.0.0
 
 Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market. The plugin includes full control over post types, taxonomies, and views.
 
@@ -39,8 +39,8 @@ No it isn't.
 
 == Changelog ==
 
-= 1.0.0 =
-* This is the first version of this plugin.
+= 0.2.5 =
+* This is the beta version of this plugin. Not all features are available yet.
 
 == Scott Reed Design ==
 
