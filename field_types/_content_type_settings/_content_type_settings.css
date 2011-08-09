@@ -1,0 +1,93 @@
+#menu-icon-row {
+	height: 18px;
+}
+#menu-icon-row select {
+	display: block;
+	float: left;
+}
+#menu-icon-row div {
+	display: block;
+	float: left;
+	height: 19px;
+	width: 36px;
+	overflow: hidden;
+}
+#menu-icon-row div img {
+	padding: 3px 10px;
+}
+input#title,
+input#title-singular,
+input#slug {
+	font-size: 1.7em;
+	line-height: 100%;
+	outline: none;
+	padding: 3px 4px;
+	margin: 0;
+	width: 100%;
+}
+#content-type-settings table {
+	font-size: 12px;
+}
+#content-type-settings table th {
+	width: 35%;
+	text-align: right;
+	font-weight: bold;
+	vertical-align: top;
+	padding: 10px 5px 0 5px;
+	white-space: nowrap;
+}
+#content-type-settings table th.sub {
+	font-weight: normal;
+}
+#content-type-settings table tbody.title tr th {
+	text-align: left;
+	font-weight: normal;
+	font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+}
+#content-type-settings table td {
+	width: 90%;
+	padding: 5px 5px 0 5px;
+	vertical-align: bottom;
+}
+#advanced-setting-option td {
+	padding: 20px 0 0 0;
+}
+#poststuff .inside p.description {
+	padding: 0;
+	margin: 2px 0 5px 0;
+}
+#poststuff .inside span.description {
+	font-size: 11px;
+	line-height: 1.2;
+	vertical-align: bottom;
+}
+#poststuff .inside input[type="checkbox"],
+#poststuff .inside input[type="radio"] {
+	vertical-align: bottom;
+}
+#content-type-settings table tr {
+	text-align: top;
+}
+#content-type-settings table tbody.title tr.top td {
+}
+#content-type-settings table tbody.title tr.bottom td div {
+	width: 100%;
+	border-top: solid 1px #dfdfdf;
+	zborder-bottom: solid 2px #fff;
+	background: #fff;
+	height: 1px;
+}
+#content-type-settings table tbody.title td.show-hide {
+	text-align:right;
+	padding-bottom: 5px;
+}
+#content-type-settings table tr th {
+	text-align: right;
+}
+#content-type-settings table tr td {
+	width: 488px;
+}
+#poststuff #content-type-settings h2 {
+	margin: 5px 0 5px 0;
+	padding-bottom: 0;
+}
