@@ -44,6 +44,9 @@ No it isn't.
 = 0.2.5 =
 * This is the beta version of this plugin. Not all features are available yet.
 
+= 0.5.0 =
+* This is the 'final' beta version of this plugin. All initial features are available.
+
 == Scott Reed Design ==
 
 Reed Write was created by Brian S. Reed and is available on his site, scottreeddesign.com. http://scottreeddesign.com/project/reed-write.
