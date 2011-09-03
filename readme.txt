@@ -1,7 +1,7 @@
 === Reed Write ===
 Contributors: iambriansreed
 Donate link: http://scottreeddesign.com/project/reed-write/
-Tags: content management, content management system, content types, custom content types, custom post types, post types, cms
+Tags: content management, content management system, content type, custom content types, custom post, custom post type, post type, cms, taxonomies, custom taxonomies, custom tags, custom tag, custom categories, custom category, custom field, custom fields, custom content fields, reedwrite, reed-write
 Requires at least: 3.0.0
 Tested up to: 3.2.1
 Stable tag: 1.0.0
