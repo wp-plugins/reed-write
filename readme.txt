@@ -16,7 +16,7 @@ The plugin uses the content types extensions built into WordPress 3 and therefor
 
 The plugin allows administators to make completely custom content types, and custom taxonomies (categories and tags).
 
-The plugin presents formatted meta field values after the content if option is selected and also provides functions for creating templated field values.
+The plugin presents formatted meta field values after the content if option is selected and also provides functions for including field values in custom templates.
 
 The plugin is extensible so users can add their own custom coded field types.
 
