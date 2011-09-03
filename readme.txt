@@ -22,8 +22,9 @@ The plugin is extensible so users can add their own custom coded field types.
 
 == Installation ==
 
-1. Upload `reed-write` folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Upload `reed-write` folder to the `/wp-content/plugins/` directory.
+1. Activate the plugin through the 'Plugins' menu in WordPress.
+1. If you have installed my older plugin "Content Types WordPress Plugin" and created content types and taxonomies you will receive an error message when you try to activate this plugin. Follow the directions in the error message and your data will be saved and usable by this new Reed Write plugin.
 
 == Frequently Asked Questions ==
 
