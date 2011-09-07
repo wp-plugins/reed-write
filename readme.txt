@@ -4,7 +4,7 @@ Donate link: http://scottreeddesign.com/project/reed-write/
 Tags: content management, content management system, content type, custom content types, custom post, custom post type, post type, cms, taxonomies, custom taxonomies, custom tags, custom tag, custom categories, custom category, custom field, custom fields, custom content fields, reedwrite, reed-write
 Requires at least: 3.0.0
 Tested up to: 3.2.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 
 Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market.
 
@@ -17,6 +17,8 @@ The plugin uses the content types extensions built into WordPress 3 and therefor
 The plugin allows administators to make completely custom content types, and custom taxonomies (categories and tags).
 
 The plugin presents formatted meta field values after the content if option is selected and also provides functions for including field values in custom templates.
+
+The plugin enables the default WordPress to search custom meta field values and returns appropriate custom posts.
 
 The plugin is extensible so users can add their own custom coded field types.
 
@@ -50,6 +52,9 @@ No it isn't.
 
 = 1.0.0 =
 * This is the first non-beta version of this plugin. All initial features are available.
+
+= 1.1.0 =
+* Custom meta field values are now included with default WordPress search.
 
 == Scott Reed Design ==
 

@@ -1,17 +1,17 @@
 <?php
 /**
  * @package reed-write
- * @version 1.0.0
+ * @version 1.1.0
  */
 /*
 Plugin Name: Reed Write
 Plugin URI: http://scottreeddesign.com/project/reed-write-wordpress-plugin/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
-Version: 1.0.0
+Version: 1.1.0
 Author URI: http://scottreeddesign.com/
 */
-$_rw_version = '1.0.0';
+$_rw_version = '1.1.0';
 
 # redirects {
 	if($_GET['page'] == 'more_content_menu'){
@@ -478,7 +478,7 @@ $_rw_post = is_object($post) ? $post :
 	}
 #}
 
-# rw functions{
+# rw functions {
 
 	function _rw_query_posts($query){
 		global $post, $_rw_content_types; $old_post = $post;
@@ -496,7 +496,6 @@ $_rw_post = is_object($post) ? $post :
 		$post = $old_post;  wp_reset_postdata();
 		return $_rw_posts;
 	}
-
 
 	function _rw_get_post($_rw_post_id = false){
 		global $_rw_content_types;
@@ -580,6 +579,41 @@ $_rw_post = is_object($post) ? $post :
 	}
 	
 	wp_enqueue_script('add_rw_javascript_js', plugins_url('/_rw_script.js.php', __FILE__),array('jquery'), $_rw_version);
-#}
 
+# }
+
+# fix meta searching {
+
+	add_filter('posts_join', '_rw_search_join' );
+	function _rw_search_join( $join ) {
+		global $wpdb;
+		if(!is_search()) return $join;
+		$join .= 
+		' RIGHT JOIN '.$wpdb->postmeta.' ON '.$wpdb->posts.'.ID = '.$wpdb->postmeta.'.post_id ';
+		return $join;
+	}
+	
+	add_filter('posts_groupby', '_rw_search_groupby' );
+	function _rw_search_groupby( $groupby ){
+		global $wpdb;	
+		if( !is_search() ) return $groupby;	
+		$mygroupby = "{$wpdb->posts}.ID";		
+		if( preg_match( "/$mygroupby/", $groupby )) return $groupby; 		
+		if( !strlen(trim($groupby))) return $mygroupby;
+		return $groupby . ", " . $mygroupby;
+	}
+	
+	add_filter('posts_where', '_rw_search_where' );
+	function _rw_search_where( $where ) {
+		global $wpdb;
+		if(!is_search()) return $where;
+		$where = preg_replace(
+			"/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+			"(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)",
+			$where
+		);
+		return $where;
+	}
+	
+# }
 ?>
