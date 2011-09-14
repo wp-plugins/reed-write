@@ -1,6 +1,6 @@
 <?php
 
-	require( str_replace('wp-content\plugins\reed-write', '', dirname(__FILE__)).'wp-load.php' );
+	require ( current(explode('wp-content', dirname(__FILE__))).'wp-load.php' );
 	
 	$query = array(
 		'showposts' => 5,

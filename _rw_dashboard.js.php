@@ -1,6 +1,6 @@
 <?php
 
-	require( str_replace('wp-content\plugins\reed-write', '', dirname(__FILE__)).'wp-load.php' );
+	require ( current(explode('wp-content', dirname(__FILE__))).'wp-load.php' );
 	header("Content-type: text/javascript");
 	$rows = "";
 
@@ -50,8 +50,6 @@ foreach((array) get_posts('post_type=rw_taxonomy&numberposts=-1') as $k=>$type){
 	if(0){ ?><script type="text/javascript"><?php };
 	
 ?>
-console.log(5);
-console.log(<?php echo json_encode($rw_taxonomies); ?>);
 jQuery(function($){
 	$('#dashboard_right_now .table_content table').append('<?php echo $rows; ?>');
 	$('<p>You are using <strong>Reed Write <?php echo $_GET['ver']; ?></strong>.</p>').css('margin-bottom','0').insertAfter('#dashboard_right_now .versions br');
