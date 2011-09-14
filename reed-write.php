@@ -1,17 +1,17 @@
 <?php
 /**
  * @package reed-write
- * @version 1.2.0
+ * @version 1.3.0
  */
 /*
 Plugin Name: Reed Write
 Plugin URI: http://scottreeddesign.com/project/reed-write/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
-Version: 1.2.0
+Version: 1.3.0
 Author URI: http://scottreeddesign.com/
 */
-$_rw_version = '1.2.0';
+$_rw_version = '1.3.0';
 
 # redirects {
 	if($_GET['page'] == 'more_content_menu'){
@@ -484,16 +484,21 @@ $_rw_post = is_object($post) ? $post :
 		global $post, $_rw_content_types; $old_post = $post;
 		$_rw_query = new WP_Query($query);
 		$_rw_posts = array();
-		foreach($_rw_query->posts as $_rw_post_){
-			$post = $_rw_post_;
-			$_rw_post = (array) $_rw_post_;
-			foreach((array)$_rw_content_types[$_rw_post['post_type']]['fields'] as $_rw_field)
-				$_rw_post[$_rw_field['slug']] = _rw_get_field_value($_rw_field['slug'], $_rw_post);				
-			the_post();	
+		if(property_exists($_rw_query, 'posts') && is_array($_rw_query->posts))
+		if ( $_rw_query->have_posts() ) { while ( $_rw_query->have_posts() ) : $_rw_query->the_post();
+			$_rw_post = (array) $post;
 			$_rw_post['post_content_formatted'] = _rw_get_the_content_with_formatting();
+			
+			foreach((array)$_rw_content_types[$_rw_post['post_type']]['fields'] as $_rw_field)
+				$_rw_post[$_rw_field['slug']] = _rw_get_field_value($_rw_field['slug'], $_rw_post);	
+									
 			$_rw_posts[] = $_rw_post;
+			endwhile;
+		}else{
+			return false;
 		}
-		$post = $old_post;  wp_reset_postdata();
+		$post = $old_post;
+		wp_reset_postdata();
 		return $_rw_posts;
 	}
 
@@ -566,14 +571,15 @@ $_rw_post = is_object($post) ? $post :
 	$_rw_console_log = array();
 	function _rw_log($val, $key = false){
 		global $_rw_console_log;
+		echo '<!-- _rw_log add -->';
 		$key = $key ? $key : '_rw_log_' . (count($_rw_console_log)+1);
 		$_rw_console_log[$key] = $val;
 	}
 	
 	add_action('wp_footer', '_rw_console_log_footer' );
-	function _rw_console_log_footer() {
-		
+	function _rw_console_log_footer() {		
 		global $_rw_console_log;
+		echo '<!-- _rw_log -->';
 		foreach($_rw_console_log as $key=>$x)
 			echo '<script type="text/javascript">console.log("'.$key.' ->");console.log('.json_encode($x).');</script>';
 	}
