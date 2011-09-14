@@ -5,7 +5,7 @@
  */
 /*
 Plugin Name: Reed Write
-Plugin URI: http://scottreeddesign.com/project/reed-write-wordpress-plugin/
+Plugin URI: http://scottreeddesign.com/project/reed-write/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
 Version: 1.2.0
