@@ -60,7 +60,7 @@ No it isn't.
 * Fixed wp-load.php reference errors.
 
 = 1.3.0 =
-* Fixed _rw_query_posts PHP function, _rw_query JavaScript function as well as erroneous _rw_taxonomies and _rw_content_types JavaScript variables.
+* Fixed _rw_query_posts PHP function, _rw_query JavaScript function as well as erroneous _rw_taxonomies and _rw_content_types JavaScript variables. Added conversion of all applicable characters in the multiple lines values to HTML entities (Thanks @placegraphic). 
 
 == Scott Reed Design ==
 
