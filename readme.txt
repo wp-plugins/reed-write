@@ -44,26 +44,26 @@ No it isn't.
 
 == Changelog ==
 
-= 0.2.5 =
-* This is the beta version of this plugin. Not all features are available yet.
-
-= 0.5.0 =
-* This is the 'final' beta version of this plugin. All initial features are available.
-
-= 1.0.0 =
-* This is the first non-beta version of this plugin. All initial features are available.
-
-= 1.1.0 =
-* Custom meta field values are now included with default WordPress search.
-
-= 1.2.0 =
-* Fixed wp-load.php reference errors.
+= 1.3.1 =
+* Fixed Field deletion error (Thanks @deflime),  Fixed wording on Content Type Settings (Thanks @Schulte), Removed htmlentities from non-formatted multiple lines values
 
 = 1.3.0 =
 * Fixed _rw_query_posts PHP function, _rw_query JavaScript function as well as erroneous _rw_taxonomies and _rw_content_types JavaScript variables. Added conversion of all applicable characters in the multiple lines values to HTML entities (Thanks @placegraphic).
 
-= 1.3.1 =
-* Fixed Field deletion error (Thanks @deflime),  Fixed wording on Content Type Settings (Thanks @Schulte), Removed htmlentities from non-formatted multiple lines values
+= 1.2.0 =
+* Fixed wp-load.php reference errors.
+
+= 1.1.0 =
+* Custom meta field values are now included with default WordPress search.
+
+= 1.0.0 =
+* This is the first non-beta version of this plugin. All initial features are available.
+
+= 0.5.0 =
+* This is the 'final' beta version of this plugin. All initial features are available.
+
+= 0.2.5 =
+* This is the beta version of this plugin. Not all features are available yet.
 
 == Scott Reed Design ==
 
