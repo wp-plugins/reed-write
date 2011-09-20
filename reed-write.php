@@ -1,17 +1,17 @@
 <?php
 /**
  * @package reed-write
- * @version 1.3.0
+ * @version 1.3.1
  */
 /*
 Plugin Name: Reed Write
 Plugin URI: http://scottreeddesign.com/project/reed-write/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
-Version: 1.3.0
+Version: 1.3.1
 Author URI: http://scottreeddesign.com/
 */
-$_rw_version = '1.3.0';
+$_rw_version = '1.3.1';
 
 # redirects {
 	if($_GET['page'] == 'more_content_menu'){
@@ -37,6 +37,7 @@ $_rw_post = is_object($post) ? $post :
 #}
 
 # set rw_content_types & rw_taxonomies {
+	$_rw_script_js = "var _rw_loaded = true;";
 	$_rw_content_types = array();
 	$_rw_taxonomies = array();
 	foreach((array) get_posts('post_type=rw_content_type&numberposts=-1') as $_rw_type){
@@ -45,6 +46,7 @@ $_rw_post = is_object($post) ? $post :
 		$_rw_fields_ = get_post_custom_values('fields',$_rw_type->ID) ? 
 			maybe_unserialize(array_shift(get_post_custom_values('fields',$_rw_type->ID))) : array();
 		$_rw_fields = array();
+		if(is_array($_rw_fields_))
 		foreach($_rw_fields_ as $_rw_field) $_rw_fields[$_rw_field['slug']] = $_rw_field;
 		$_rw_content_types[$_rw_args['slug']] = array_merge((array) $_rw_type,
 			array('arguments'=>$_rw_args,'fields'=>$_rw_fields) );}
@@ -620,6 +622,6 @@ $_rw_post = is_object($post) ? $post :
 		);
 		return $where;
 	}
-	
+		
 # }
 ?>

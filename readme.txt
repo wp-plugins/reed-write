@@ -4,13 +4,15 @@ Donate link: http://scottreeddesign.com/project/reed-write/
 Tags: content management, content management system, content type, custom content types, custom post, custom post type, post type, cms, taxonomies, custom taxonomies, custom tags, custom tag, custom categories, custom category, custom field, custom fields, custom content fields, reedwrite, reed-write
 Requires at least: 3.0.0
 Tested up to: 3.2.1
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 
 Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market.
 
 == Description ==
 
 Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market. The plugin includes full control over post types, taxonomies.
+
+The plugin reformats and reuses data entered from the now abandoned Content Types Plugin.
 
 The plugin uses the content types extensions built into WordPress 3 and therefore is only supported in WordPress 3+.
 
@@ -60,7 +62,10 @@ No it isn't.
 * Fixed wp-load.php reference errors.
 
 = 1.3.0 =
-* Fixed _rw_query_posts PHP function, _rw_query JavaScript function as well as erroneous _rw_taxonomies and _rw_content_types JavaScript variables. Added conversion of all applicable characters in the multiple lines values to HTML entities (Thanks @placegraphic). 
+* Fixed _rw_query_posts PHP function, _rw_query JavaScript function as well as erroneous _rw_taxonomies and _rw_content_types JavaScript variables. Added conversion of all applicable characters in the multiple lines values to HTML entities (Thanks @placegraphic).
+
+= 1.3.1 =
+* Fixed Field deletion error (Thanks @deflime),  Fixed wording on Content Type Settings (Thanks @Schulte), Removed htmlentities from non-formatted multiple lines values
 
 == Scott Reed Design ==
 
