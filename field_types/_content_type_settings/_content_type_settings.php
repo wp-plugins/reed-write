@@ -260,7 +260,7 @@
 			</tr>
 			<tr>
 				<th>Exportable</th>
-				<td><input type="checkbox" name="arguments[can_export]" value="1" <?php echo ($arguments['can_export'] ?'checked="checked"':'')?>/> <span class="description">This post type be exported.</span></td>
+				<td><input type="checkbox" name="arguments[can_export]" value="1" <?php echo ($arguments['can_export'] ?'checked="checked"':'')?>/> <span class="description">This post type can be exported.</span></td>
 			</tr>
 			<tr>
 				<th>Hierarchical</th>

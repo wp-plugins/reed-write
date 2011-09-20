@@ -19,7 +19,7 @@
 		if($custom_values)
 			$value = maybe_unserialize(array_shift($custom_values));
 		if(!$wrap) return $value;
-		return '<p>'.($value ? str_replace(array("\r\r","\r\n","\n\r","\n\n","\r","\n"), '<br />',$value) : '<em>Nothing Entered</em>').'</p>';
+		return '<p>'.($value ? htmlentities(str_replace(array("\r\r","\r\n","\n\r","\n\n","\r","\n"), '<br />',$value)) : '<em>Nothing Entered</em>').'</p>';
 	}
 
 ?>
