@@ -14,7 +14,7 @@ Reed Write extends WordPress giving it the full capabilities of the most popular
 
 The plugin uses the content types extensions built into WordPress 3 and therefore is only supported in WordPress 3+.
 
-The plugin allows administators to make completely custom content types, and custom taxonomies (categories and tags).
+The plugin allows administrators to make completely custom content types, and custom taxonomies (categories and tags).
 
 The plugin presents formatted meta field values after the content if option is selected and also provides functions for including field values in custom templates.
 
