@@ -505,7 +505,7 @@ $_rw_post = is_object($post) ? $post :
 
 	function _rw_get_post($_rw_post_id = false){
 		global $_rw_content_types;
-		the_post();
+		//the_post();
 		$_rw_post = (array) get_post($_rw_post_id);
 		foreach((array)$_rw_content_types[$_rw_post['post_type']]['fields'] as $_rw_field)
 			$_rw_post[$_rw_field['slug']] = _rw_get_field_value($_rw_field['slug'], $_rw_post);
@@ -562,8 +562,8 @@ $_rw_post = is_object($post) ? $post :
 		echo " value=\"$_rw_v\" ".($_rw_v==$_rw_tv ? "$_rw_t=\"$_rw_t\" " : "");
 	}
 	
-	function _rw_get_the_content_with_formatting ($more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
-		$content = get_the_content($more_link_text, $stripteaser, $more_file);
+	function _rw_get_the_content_with_formatting($more_text = '(more...)', $stripteaser = 0, $more_file = ''){
+		$content = get_the_content($more_text, $stripteaser, $more_file);
 		$content = apply_filters('the_content', $content);
 		$content = str_replace(']]>', ']]&gt;', $content);
 		return $content;
