@@ -482,7 +482,8 @@ $_rw_post = is_object($post) ? $post :
 # rw functions {
 
 	function _rw_query_posts($query){
-		global $post, $_rw_content_types; $old_post = $post;
+		global $post, $_rw_content_types;
+		$old_post = $post;
 		$_rw_query = new WP_Query($query);
 		$_rw_posts = array();
 		if(property_exists($_rw_query, 'posts') && is_array($_rw_query->posts))
