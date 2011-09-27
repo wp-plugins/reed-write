@@ -11,12 +11,12 @@ $body_id = 'media-upload';
 wp_enqueue_style('media');
 
 function media_header_tabs($tab){ 
-echo str_replace("tab=$tab","tab=$tab".'" class="current"','<div id="media-upload-header">
-	<ul id="sidemenu">
-		<li id="tab-type"><a href="'.get_bloginfo('url').'/wp-content/plugins/reed-write/field_types/select_image/select_image_popup.php?slug=logo&amp;tab=_rw_from_computer">From Computer</a></li>
-		<li id="tab-_rw_select_images"><a href="'.get_bloginfo('url').'/wp-content/plugins/reed-write/field_types/select_image/select_image_popup.php?slug=logo&amp;tab=_rw_from_library">From Library</a></li>
-	</ul>
-</div>');
+	echo str_replace("tab=$tab","tab=$tab".'" class="current"','<div id="media-upload-header">
+		<ul id="sidemenu">
+			<li id="tab-type"><a target="_self" href="'.get_bloginfo('url').'/wp-content/plugins/reed-write/field_types/select_image/select_image_popup.php?slug='.$_GET['slug'].'&amp;tab=_rw_from_computer">From Computer</a></li>
+			<li id="tab-_rw_select_images"><a target="_self" href="'.get_bloginfo('url').'/wp-content/plugins/reed-write/field_types/select_image/select_image_popup.php?slug='.$_GET['slug'].'&amp;tab=_rw_from_library">From Library</a></li>
+		</ul>
+	</div>');
 }
 
 function _rw_from_library(){	
@@ -109,11 +109,12 @@ $image = wp_get_attachment_image_src($p->ID, array(100,100));
 	</div>
 </div>
 <script type="text/javascript">
-jQuery(document).ready(function($){
-var slug = '<?php echo $_GET['slug']; ?>';
+jQuery(window).ready(function($){
+	var slug = '<?php echo $_GET['slug']; ?>';
 	$('a.insert-select-image').click(function(){
 	
 		var id_src = $(this).attr('href').split('#')[1].split('?');
+		
 		if($(this).hasClass('remove')){		
 			top.select_image_remove(id_src[0], slug);		
 			$(this).removeClass('remove');
@@ -124,19 +125,15 @@ var slug = '<?php echo $_GET['slug']; ?>';
 			$(this).text('Remove');	
 		}
 		return false;
-	
 	});
-	var val = $('#'+slug, top.document).val().split('|');
-	
-	$('a.insert-select-image').each(function(){
-		
+	var select_image_ids = $(window.parent.document).find('#<?php echo $_GET['slug']; ?>').val().split('|');
+	$('a.insert-select-image').each(function(){		
 		var id_src = $(this).attr('href').split('#')[1].split('?');
-		for(var i = 0; i < val.length; i++){
-			if(val[i]!=id_src[0]) continue;			
+		for(var i = 0; i < select_image_ids.length; i++){
+			if(select_image_ids[i]!=id_src[0]) continue;			
 			$(this).addClass('remove');
 			$(this).text('Remove');
-		}
-	
+		}	
 	});
 });
 </script>
@@ -154,7 +151,8 @@ echo '<pre>'.print_r($_FILES, 1).'</pre>';
 echo '<pre>'.print_r($_POST, 1).'</pre>';
 */
 	$upload_error = ''; $upload_sucess = '';
-	if($_FILES['upload_image']){
+	if($_FILES['upload_image'] && $_GET['uploading']){
+		_rw_log($_FILES);
 		if(!$_FILES['upload_image']['error']){		
 			
 			$wp_upload_dir = wp_upload_dir();
@@ -178,11 +176,11 @@ echo '<pre>'.print_r($_POST, 1).'</pre>';
 				$upload_sucess = 'Your image was successfully loaded.';	
 		}	
 		if($upload_sucess == '')
-			$upload_error = 'There was an error upploading your file. Please try again.';
+			$upload_error = 'There was an error uploading your file. Please try again.';
 	}
 	?>
 	<div class="image-selector" style="padding: 25px;">
-		<form enctype="multipart/form-data" method="post" action="<?php bloginfo('url') ?>/wp-content/plugins/reed-write/field_types/select_image/select_image_popup.php?slug=logo&tab=_rw_from_computer" class="media-upload-form type-form validate" id="image-form">
+		<form enctype="multipart/form-data" method="post" action="<?php bloginfo('url'); ?>/wp-content/plugins/reed-write/field_types/select_image/select_image_popup.php?slug=<?php echo $_GET['slug']; ?>&amp;tab=_rw_from_computer&amp;uploading=image" class="media-upload-form type-form validate" id="image-form">
 <!-- input type="submit" name="save" id="save" class="hidden" value="Save Changes"><input type="hidden" name="post_id" id="post_id" value="182" -->
 <!-- input type="hidden" id="_wpnonce" name="_wpnonce" value="60681af029"><input type="hidden" name="_wp_http_referer" value="/wp-admin/media-upload.php?post_id=0&amp;type=image&amp;" -->
 <h3 class="media-title">Add media files from your computer</h3>
