@@ -4,7 +4,7 @@ Donate link: http://scottreeddesign.com/project/reed-write/
 Tags: content management, content management system, content type, custom content types, custom post, custom post type, post type, cms, taxonomies, custom taxonomies, custom tags, custom tag, custom categories, custom category, custom field, custom fields, custom content fields, reedwrite, reed-write, brian reed, scott reed design, awesome, possum
 Requires at least: 3.0.0
 Tested up to: 3.2.1
-Stable tag: 1.3.1
+Stable tag: 1.4.0
 
 Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market.
 
@@ -14,7 +14,7 @@ Reed Write extends WordPress giving it the full capabilities of the most popular
 
 The plugin uses the content types extensions built into WordPress 3 and therefore is only supported in WordPress 3+.
 
-The plugin allows administators to make completely custom content types, and custom taxonomies (categories and tags).
+The plugin allows administrators to make completely custom content types, and custom taxonomies (categories and tags).
 
 The plugin presents formatted meta field values after the content if option is selected and also provides functions for including field values in custom templates.
 
@@ -44,11 +44,18 @@ No it isn't.
 
 == Changelog ==
 
+= 1.4.0 =
+* Fixed Choices, Query error (Thanks @Schulte, @Manoela)
+* Added Image Download Tab to Select Image Field Type (Thanks @Manoela)
+
 = 1.3.1 =
-* Fixed Field deletion error (Thanks @deflime),  Fixed wording on Content Type Settings (Thanks @Schulte), Removed htmlentities from non-formatted multiple lines values
+* Fixed Field deletion error (Thanks @deflime)
+* Fixed wording on Content Type Settings (Thanks @Schulte)
+* Removed htmlentities from non-formatted multiple lines values
 
 = 1.3.0 =
-* Fixed _rw_query_posts PHP function, _rw_query JavaScript function as well as erroneous _rw_taxonomies and _rw_content_types JavaScript variables. Added conversion of all applicable characters in the multiple lines values to HTML entities (Thanks @placegraphic).
+* Fixed _rw_query_posts PHP function, _rw_query JavaScript function as well as erroneous _rw_taxonomies and _rw_content_types JavaScript variables.
+* Added conversion of all applicable characters in the multiple lines values to HTML entities (Thanks @placegraphic).
 
 = 1.2.0 =
 * Fixed wp-load.php reference errors.
