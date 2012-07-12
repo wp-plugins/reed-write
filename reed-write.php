@@ -1,17 +1,17 @@
 <?php
 /**
  * @package reed-write
- * @version 1.4.0
+ * @version 1.5.0
  */
 /*
 Plugin Name: Reed Write
 Plugin URI: http://scottreeddesign.com/project/reed-write/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
-Version: 1.4.0
+Version: 1.5.0
 Author URI: http://scottreeddesign.com/
 */
-$_rw_version = '1.4.0';
+$_rw_version = '1.5.0';
 
 # redirects {
 	if($_GET['page'] == 'more_content_menu'){
@@ -388,8 +388,6 @@ $_rw_post = is_object($post) ? $post :
 				foreach((array)$_rw_type['arguments']['taxonomies'] as $_rw_tax_slug)
 					register_taxonomy_for_object_type($_rw_tax_slug, $_rw_type['arguments']['slug']);
 		#}
-		
-		flush_rewrite_rules();
 	}
 #}
 
