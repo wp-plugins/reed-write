@@ -45,7 +45,7 @@ No it isn't.
 == Changelog ==
 
 = 1.5.1 =
-* Fixed default post type issues
+* Fixed default post type issues (Thanks @Readymadeweb)
 
 = 1.5.0 =
 * Fixed rewrite issues, Plugin compatibility
