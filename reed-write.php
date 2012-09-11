@@ -1,17 +1,17 @@
 <?php
 /**
  * @package reed-write
- * @version 1.5.1
+ * @version 1.5.2
  */
 /*
 Plugin Name: Reed Write
 Plugin URI: http://scottreeddesign.com/project/reed-write/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
-Version: 1.5.1
+Version: 1.5.2
 Author URI: http://scottreeddesign.com/
 */
-$_rw_version = '1.5.1';
+$_rw_version = '1.5.2';
 
 # redirects {
 	if($_GET['page'] == 'more_content_menu'){
@@ -152,7 +152,7 @@ $_rw_post = is_object($post) ? $post :
 
 # fix custom menu icons { 
 	add_action('admin_head', '_rw_plugin_header');
-	function _rw_plugin_header() { ?><link rel="stylesheet" href="<?php echo plugins_url('/_rw_admin.css', __FILE__); ?>" type="text/css" media="all" /><?php }
+	function _rw_plugin_header() { ?><link rel="stylesheet" href="<?php echo plugins_url('/_rw_admin.css.php', __FILE__); ?>" type="text/css" media="all" /><?php }
 #}
 
 # add dashboard script {
@@ -514,6 +514,15 @@ $_rw_post = is_object($post) ? $post :
 		$_rw_post['post_content_formatted'] = _rw_get_the_content_with_formatting();
 		return $_rw_post;
 	}
+	
+	function _rw_get_post_raw($_rw_post_id = false, $object = false){
+		global $_rw_content_types;
+		//the_post();
+		$_rw_post = (array) get_post($_rw_post_id);
+		foreach((array)$_rw_content_types[$_rw_post['post_type']]['fields'] as $_rw_field)
+			$_rw_post[$_rw_field['slug']] = get_post_meta($_rw_post_id, $_rw_field['slug'], 1);
+		return $object ? (object)$_rw_post : $_rw_post;
+	}
 
 	function _rw_setup_value_range_array($_rw_field){
 		$_rw_options = array();
@@ -593,7 +602,7 @@ $_rw_post = is_object($post) ? $post :
 
 # fix meta searching {
 
-	add_filter('posts_join', '_rw_search_join' );
+	add_filter( 'posts_join', '_rw_search_join' );
 	function _rw_search_join( $join ) {
 		global $wpdb;
 		if(!is_search()) return $join;
@@ -602,7 +611,7 @@ $_rw_post = is_object($post) ? $post :
 		return $join;
 	}
 	
-	add_filter('posts_groupby', '_rw_search_groupby' );
+	add_filter( 'posts_groupby', '_rw_search_groupby' );
 	function _rw_search_groupby( $groupby ){
 		global $wpdb;	
 		if( !is_search() ) return $groupby;	
@@ -612,7 +621,7 @@ $_rw_post = is_object($post) ? $post :
 		return $groupby . ", " . $mygroupby;
 	}
 	
-	add_filter('posts_where', '_rw_search_where' );
+	add_filter( 'posts_where', '_rw_search_where' );
 	function _rw_search_where( $where ) {
 		global $wpdb;
 		if(!is_search()) return $where;
