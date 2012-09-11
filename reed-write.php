@@ -460,6 +460,7 @@ $_rw_post = is_object($post) ? $post :
 #}
 
 # content filter {
+	
 	add_filter( 'the_content', '_rw_content_filter', 20 );
 	function _rw_content_filter( $content ) {
 		global $post, $_rw_content_types;	
@@ -478,6 +479,7 @@ $_rw_post = is_object($post) ? $post :
 		
 		return $content;
 	}
+
 #}
 
 # rw functions {
