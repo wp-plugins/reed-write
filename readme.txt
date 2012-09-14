@@ -1,6 +1,6 @@
 === Reed Write ===
 Contributors: iambriansreed
-Donate link: http://scottreeddesign.com/project/reed-write/
+Donate link: http://reedwrite.scottreeddesign.com/
 Tags: content management, content management system, content type, custom content types, custom post, custom post type, post type, cms, taxonomies, custom taxonomies, custom tags, custom tag, custom categories, custom category, custom field, custom fields, custom content fields, reedwrite, reed-write, brian reed, scott reed design, awesome, possum
 Requires at least: 3.0.0
 Tested up to: 3.4.2
@@ -86,4 +86,5 @@ No it isn't.
 
 == Scott Reed Design ==
 
-Reed Write was created by Brian S. Reed and documentation is provided on his site http://scottreeddesign.com/project/reed-write.
+Reed Write was created by Brian S. Reed, Scott Reed Design, LLC.
+Visit http://scottreeddesign.com for more information.
