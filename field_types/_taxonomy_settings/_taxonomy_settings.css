@@ -1,0 +1,76 @@
+#menu-icon-row {
+	height: 18px;
+}
+#menu-icon-row select {
+	display: block;
+	float: left;
+}
+#menu-icon-row div {
+	display: block;
+	float: left;
+	height: 19px;
+	width: 36px;
+	overflow: hidden;
+}
+#menu-icon-row div img {
+	padding: 3px 10px;
+}
+input#title,
+input#title-singular,
+input#slug {
+	font-size: 1.7em;
+	line-height: 100%;
+	outline: none;
+	padding: 3px 4px;
+	margin: 0;
+	width: 100%;
+}
+.form-table th {
+	width: auto;
+	text-align: right;
+	font-weight: bold;
+	vertical-align: top;
+	padding: 10px 5px 0 5px;
+	white-space: nowrap;
+}
+.form-table .label-slug th {
+	vertical-align: top;
+}
+.form-table th.sub {
+	font-weight: normal;
+}
+.form-table td {
+	width: 90%;
+	padding: 5px 5px 0 5px;
+	vertical-align: bottom;
+}
+#advanced-setting-option td {
+	padding: 20px 0 0 0;
+}
+#poststuff .inside p.description {
+	padding: 0;
+	margin: 2px 0 5px 0;
+}
+#poststuff .inside span.description {
+	font-size: 11px;
+	line-height: 1.2;
+	vertical-align: bottom;
+}
+#poststuff .inside input[type="checkbox"],
+#poststuff .inside input[type="radio"] {
+	vertical-align: bottom;
+}
+#taxonomy-settings table tr {
+	text-align: top;
+}
+#taxonomy-settings table tr th {
+	width: 150px;
+	text-align: right;
+}
+#taxonomy-settings table tr td {
+	width: 488px;
+}
+#poststuff #taxonomy-settings h2 {
+	margin: 0;
+	padding: 5px 0 0 20px;
+}
