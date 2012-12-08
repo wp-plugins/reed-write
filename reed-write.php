@@ -1,17 +1,17 @@
 <?php
 /**
  * @package reed-write
- * @version 1.5.3
+ * @version 1.5.4
  */
 /*
 Plugin Name: Reed Write
 Plugin URI: http://reedwrite.scottreeddesign.com/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
-Version: 1.5.3
+Version: 1.5.4
 Author URI: http://scottreeddesign.com/
 */
-$_rw_version = '1.5.3';
+$_rw_version = '1.5.4';
 
 # redirects {
 	if($_GET['page'] == 'more_content_menu'){
@@ -391,6 +391,23 @@ $_rw_post = is_object($post) ? $post :
 				foreach((array)$_rw_type['arguments']['taxonomies'] as $_rw_tax_slug)
 					register_taxonomy_for_object_type($_rw_tax_slug, $_rw_type['arguments']['slug']);
 		#}
+		
+		if ( is_admin() ){ // admin actions
+		
+			add_action('admin_menu', 'register_my_custom_submenu_page');
+
+			function register_my_custom_submenu_page() {
+				add_submenu_page( 'options-general.php', 'ReedWrite Settings', 'ReedWrite', 'edit_themes', 'reedwrite-settings', 'reedwrite_settings_callback' ); 
+			}
+			
+			function reedwrite_settings_callback() {
+				require('settings.php');
+			}
+			
+		}
+		
+		
+		
 	}
 #}
 
@@ -598,6 +615,7 @@ $_rw_post = is_object($post) ? $post :
 			echo '<script type="text/javascript">console.log("'.$key.' ->");console.log('.json_encode($x).');</script>';
 	}
 	
+	if(is_admin() || get_option( "_rw_option_load_script", true ))
 	wp_enqueue_script('add_rw_javascript_js', plugins_url('/_rw_script.js.php', __FILE__),array('jquery'), $_rw_version);
 
 # }

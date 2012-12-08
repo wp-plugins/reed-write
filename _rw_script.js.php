@@ -19,7 +19,7 @@ jQuery(function($){
 			success: function(data){ json = data; },
 			//complete: function(data){ console.log(data.responseText); },
 			//error: function(c, d, e){ e['query'] = query; console.log(e); },
-			async : false
+			//async : false
 		});
 		
 		if(typeof(_function) != 'function')
