@@ -52,6 +52,8 @@ foreach((array) get_posts('post_type=rw_taxonomy&numberposts=-1') as $k=>$type){
 ?>
 jQuery(function($){
 	$('#dashboard_right_now .table_content table').append('<?php echo $rows; ?>');
-	$('<p>You are using <strong>Reed Write <?php echo $_GET['ver']; ?></strong>.</p>').css('margin-bottom','0').insertAfter('#dashboard_right_now .versions br');
+		
+	$('#wp-version-message').append('<span> and <strong>Reed Write <?php echo $_GET['ver']; ?></strong>.<span>').html( $('#wp-version-message').html().replace('.<span>','<span>') );
+	
 	$('<span> with Reed Write</span>').css({'font-style':'italic','font-size':'1em','color':'#999'}).insertAfter('#dashboard_right_now .hndle span');
 });
