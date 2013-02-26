@@ -3,7 +3,7 @@ Contributors: iambriansreed
 Donate link: http://reedwrite.scottreeddesign.com/
 Tags: content management, content management system, content type, custom content types, custom post, custom post type, post type, cms, taxonomies, custom taxonomies, custom tags, custom tag, custom categories, custom category, custom field, custom fields, custom content fields, reedwrite, reed-write, brian reed, scott reed design, awesome, possum
 Requires at least: 3.0.0
-Tested up to: 3.4.2
+Tested up to: 3.5.1
 Stable tag: 1.5.5
 
 Reed Write extends WordPress giving it the full capabilities of the most popular content management systems on the market.
