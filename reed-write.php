@@ -1,17 +1,17 @@
 <?php
 /**
  * @package reed-write
- * @version 1.5.5
+ * @version 1.5.6
  */
 /*
 Plugin Name: Reed Write
 Plugin URI: http://reedwrite.scottreeddesign.com/
 Description: Reed Write is a WordPress plugin that helps you create custom content types in WordPress. It allows for custom categories, custom tags, and custom input fields.
 Author: Brian S. Reed
-Version: 1.5.5
+Version: 1.5.6
 Author URI: http://scottreeddesign.com/
 */
-$_rw_version = '1.5.5';
+$_rw_version = '1.5.6';
 
 # redirects {
 	if($_GET['page'] == 'more_content_menu'){
@@ -163,6 +163,7 @@ $_rw_post = is_object($post) ? $post :
 #}
 
 # init {
+	
 	add_action('init', '_rw_init');
 	function _rw_init(){
 		global $_rw_content_types, $_rw_taxonomies;
@@ -172,6 +173,7 @@ $_rw_post = is_object($post) ? $post :
 		# default post types {
 			if(current_user_can('activate_plugins'))
 				$_rw_content_types = array_merge(
+					!get_option( "_rw_option_admin_menu_on", true ) ? array() : 
 					array(
 					'rw_content_type' => array(
 							'post_title' => 'Content Types',
@@ -207,7 +209,7 @@ $_rw_post = is_object($post) ? $post :
 								)
 							)
 						),
-						'rw_taxonomy' => array(
+					'rw_taxonomy' => array(
 							'post_title' => 'Taxonomies',
 							'arguments' => array(
 								'slug' => 'rw_taxonomy',
@@ -412,6 +414,7 @@ $_rw_post = is_object($post) ? $post :
 #}
 
 # admin_menu {
+	
 	add_action('admin_menu', '_rw_admin_menu');
 	function _rw_admin_menu(){
 	
@@ -445,11 +448,13 @@ $_rw_post = is_object($post) ? $post :
 		//echo '<pre>'.print_r($menu, 1).'</pre>';
 	}
 	function _rw_remove_menu($_rw_menu, $_rw_title){
-		foreach($_rw_menu as $_rw_k=>$_rw_item){
-			if($_rw_item[0] == $_rw_title)
-				unset($_rw_menu[$_rw_k]);
-		}
+	foreach($_rw_menu as $_rw_k=>$_rw_item){
+		if($_rw_item[0] == $_rw_title)
+			unset($_rw_menu[$_rw_k]);
 	}
+}
+
+	
 #}
 
 # save post {
